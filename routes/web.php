@@ -22,4 +22,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/appointments', [AppointmentsController::class, 'index']);
+Route::get('/appointments', [AppointmentsController::class, 'index'])->name('appointments.index');

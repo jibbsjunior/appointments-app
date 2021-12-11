@@ -8,6 +8,7 @@
                     <a href="{{ route('dashboard') }}">
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a>
+
                 </div>
 
                 <!-- Navigation Links -->
@@ -15,9 +16,13 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="#" >
+                        {{ Auth::user()->is_admin == 0 ? 'User' : 'Admin' }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
+            
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
@@ -69,6 +74,7 @@
                     </div>
                 @endif
 
+                
                 <!-- Settings Dropdown -->
                 <div class="ml-3 relative">
                     <x-jet-dropdown align="right" width="48">
@@ -88,6 +94,8 @@
                                     </button>
                                 </span>
                             @endif
+
+                            
                         </x-slot>
 
                         <x-slot name="content">
@@ -106,6 +114,9 @@
                                 </x-jet-dropdown-link>
                             @endif
 
+                            <x-jet-dropdown-link href="{{ route('appointments.index') }}">
+                                {{ __('Book Appointment') }}
+                            </x-jet-dropdown-link>
                             <div class="border-t border-gray-100"></div>
 
                             <!-- Authentication -->
