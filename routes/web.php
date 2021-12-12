@@ -23,3 +23,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/appointments', [AppointmentsController::class, 'index'])->name('appointments.index');
+Route::post('/appointment/book', [AppointmentsController::class, 'create'])->name('appointments.create');

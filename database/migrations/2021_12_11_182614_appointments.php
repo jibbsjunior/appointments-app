@@ -17,6 +17,8 @@ class Appointments extends Migration
             $table->string('name');
             $table->string('email');
             $table->date('date_of_appointment');
+            $table->string('time');
+            $table->text('notes');
         });
     }
 
