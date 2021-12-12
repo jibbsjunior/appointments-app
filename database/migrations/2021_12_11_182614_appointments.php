@@ -13,7 +13,11 @@ class Appointments extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('appointments', function(Blueprint $table) {
+            $table->string('name');
+            $table->string('email');
+            $table->date('date_of_appointment');
+        });
     }
 
     /**
